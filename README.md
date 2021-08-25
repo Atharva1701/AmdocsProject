@@ -1,7 +1,7 @@
 # E-Learning Portal using servlets
 ### This was a simple web application project. 
 The backend of this project is in MySQL. If you want to see the table structure refer to the PowerPoint presentation.
-The completed parts of this projects are the named as backend and fronted-maven.
+The completed parts of this projects are named as backend and fronted-maven.
 For full functionality details of this project, refer PowerPoint presentation.
 
 #### To run
