@@ -1,18 +1,3 @@
-<!-- <jsp:include page="header.jsp"/>
-<h3>Feedback Page :</h3>
-     <form action="feedback" method="POST">
-        <pre>
-        User Id      : <input type="number" name="user_id" /><br>
-        Name         : <input type="text" name="name" /><br>
-        Email        : <input type="email" name="email" /><br>
-        Feedback Id. : <input type="number" name="f_id" /><br>  
-        Feedback     : <input type="text" name="feedback" /><br>
-                       <input type="submit" value="Give Feedback" /><br>
-       </pre>
-     </form>
-</body>
-</html> -->
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -29,7 +14,7 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <meta charset="ISO-8859-1">
-<title>Feedback</title>
+<title>Enroll New Course</title>
 
 
 <style>
@@ -58,29 +43,17 @@ font-size: 18px;
 		<div class="col-lg-6 form-cont">
 		<div class="card">
 			<div class="card-body">
-				<b><h3 class="card-title text-center">Add New Feedback</h3></b>
-			<form action="feedback" method="POST" class="form-style">
+				<b><h3 class="card-title text-center">Enroll New Course</h3></b>
+			<form action="courseenroll" method="POST" class="form-style">
 			<div class="form-group">
-				<label for="address">User ID</label>
-				<input class="form-control" type="number" name="user_id"/>
+				<label for="id">User Id</label>
+				<input class="form-control" type="number" name="user_id" required/>
 			</div>
 			<div class="form-group">
-				<label for="name">Name</label>
-				<input class="form-control" type="text" name="name" required/>
+				<label for="id">Course Id</label>
+				<input class="form-control" type="number" name="course_id" required/>
 			</div>
-			<div class="form-group">
-				<label for="email">Email</label>
-				<input class="form-control" type="email" name="email" required/>
-			</div>
-			<div class="form-group">
-				<label for="id">Feedback ID</label>
-				<input class="form-control" type="number" name="f_id" required/>
-			</div>
-			<div class="form-group">
-				<label for="phone">Feedback</label>
-				<input class="form-control" type="text" name="feedback" required/>
-			</div>
-			<input type="submit" value="Give Feedback" /><br>
+				<button type="submit" class="btn btn-success reg">Enroll</button>
 		</form>
 			</div>
 		</div>

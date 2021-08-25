@@ -21,7 +21,7 @@ public class UserController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		response.setContentType("text/html"); 
 		PrintWriter out = response.getWriter();
 		int id = Integer.parseInt(request.getParameter("user_id"));
 		String name = request.getParameter("name");
@@ -39,7 +39,8 @@ public class UserController extends HttpServlet {
 		boolean saveUser = dao.saveUser(user);
 		
 		if(saveUser) {
-			out.println("User Saved Successfully!");
+			out.println("<h2>User Saved Successfully!</h2>");
+			out.println("<div style=\"text-align:center;\"><button type=\"button\" name=\"back\" onclick=\"history.back()\">Back</button></div>");
 		}
 		else {
 			out.println("try again");

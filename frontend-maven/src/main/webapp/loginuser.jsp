@@ -116,7 +116,7 @@ padding:0px;}
 						<h2>Log In</h2>
 					</div>
 					<div class="row">
-						<form action="login" method="POST" class="form-group">
+						<form action="loginuser" method="POST" class="form-group">
 							<div class="row">
 								<input type="number" name="user_id" id="user_id" class="form__input" placeholder="Enter User Id as Username">
 							</div>
@@ -130,7 +130,7 @@ padding:0px;}
 						</form>
 					</div>
 					<div class="row">
-						<p>Need an administrator account? <a href="contact.jsp">Contact us!</a></p>
+						<p>Don't have an account? <a href="registration.jsp">Register Here</a></p>
 					</div>
 				</div>
 			</div>

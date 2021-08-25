@@ -34,6 +34,7 @@ public class ContactController extends HttpServlet {
 		
 		if(saveContact) {
 			out.println("<h1>Contact Saved Successfully!</h1>");
+			out.println("<div style=\"text-align:center;\"><button type=\"button\" name=\"back\" onclick=\"history.back()\">Back</button></div>");
 		}
 		else {
 			out.println("Try again!!");

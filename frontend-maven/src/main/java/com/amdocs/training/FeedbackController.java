@@ -36,6 +36,7 @@ public class FeedbackController extends HttpServlet{
 		
 		if(saveFeedback) {
 			out.println("<h2>Feedback Saved Successfully!</h2>");
+			out.println("<div style=\"text-align:center;\"><button type=\"button\" name=\"back\" onclick=\"history.back()\">Back</button></div>");
 		}
 		else {
 			out.println("Try again!!");

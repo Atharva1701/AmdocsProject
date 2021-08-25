@@ -14,13 +14,15 @@ import com.amdocs.training.dao.LoginDAO;
 import com.amdocs.training.dao.impl.LoginDAOImpl;
 import com.amdocs.training.model.Login;
 
-@WebServlet("/login")
-public class LoginController extends HttpServlet {
+@WebServlet("/loginuser")
+public class LoginUserController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
+		response.setContentType("text/html");
 		int id = Integer.parseInt(request.getParameter("user_id"));
 		String pass = request.getParameter("pass");
+		if(id != 101 && pass !="atharva") {
 			Login log = new Login(id,pass);
 			LoginDAO dao = new LoginDAOImpl();
 			
@@ -29,16 +31,17 @@ public class LoginController extends HttpServlet {
 			if(validate) {
 //				out.println("Logged in Successfully!");
 				request.setAttribute("user_id", id);
-//				response.sendRedirect("showuser.jsp");
-				RequestDispatcher rd = request.getRequestDispatcher("showuser.jsp");
+//				response.sendRedirect("showonlyuser.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("showonlyuser.jsp");
 	            rd.include(request, response);
+
 			}
 			else {
 				out.println("Try again!");
 			}
 		}
-//		else {
-//			out.println("Only admin!!");
-//		}
+		else
+			out.println("<h1>This is User Login only</h2>");
 		
+	}
 }

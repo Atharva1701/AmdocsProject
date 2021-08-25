@@ -12,15 +12,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
-
-import com.amdocs.training.dao.UserDAO;
-import com.amdocs.training.dao.impl.UserDAOImpl;
-import com.amdocs.training.db.DBUtil;
 import com.amdocs.training.db.DataSourceUtil;
-import com.amdocs.training.model.User;
-
-@WebServlet("/showuser")
-public class ShowController extends HttpServlet {
+@WebServlet("/showonlyuser")
+public class ShowUserController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -55,7 +49,5 @@ public class ShowController extends HttpServlet {
 		catch(Exception e) {
 			e.printStackTrace();
 		}
-
-		
 	}
 }

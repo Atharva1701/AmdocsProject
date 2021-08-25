@@ -25,7 +25,7 @@
 	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
 	crossorigin="anonymous"></script>
 <meta charset="ISO-8859-1">
-<title>Admin Actions</title>
+<title>User Actions</title>
 
 
 <style>
@@ -108,7 +108,7 @@ body {
 #learn {
 	text-align:center;
 	width: 50%;
-	font-size:23px;
+	font-size:45px;
 }
 #portal {
 	margin : 0 auto;
@@ -125,9 +125,8 @@ body {
             
             <div id="navbarSupportedContent" class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active"><a href="showall" class="nav-link text-uppercase font-weight-bold" >View All Users&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
-                    <li class="nav-item"><a href="course.jsp" class="nav-link text-uppercase font-weight-bold">Add a course&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
-                    <li class="nav-item"><a href="coursedelete.jsp" class="nav-link text-uppercase font-weight-bold">Delete a course&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+                    <li class="nav-item"><a href="courseenroll.jsp" class="nav-link text-uppercase font-weight-bold">Enroll a course&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+                    <li class="nav-item"><a href="showonlyuser?user_id=<%= request.getAttribute("user_id") %>" class="nav-link text-uppercase font-weight-bold">Show Details&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
                     <li class="nav-item"><a href="index.jsp" class="nav-link text-uppercase font-weight-bold">Log out&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
                 </ul>
             </div>
@@ -135,19 +134,7 @@ body {
     </nav>
 </header>
 <body>
-	<div class ="container text-uppercase font-weight-bold" id="learn">Hello ,<%=  request.getAttribute("user_id")%></div>
-	<div id="learn">Enter the ID to show user :</div>
-	<div class="container">
-		<div class="row row-cnt">
-			<div class="col-lg-3"></div>
-			<form action="showuser">
-				<div class="form-group" id="learn">
-					<label for="name">User ID</label> 
-					<input class="form-control" type="number" name="user_id" required />
-				</div>
-				<input type="submit" value="Show" />
-			</form>
-		</div>
-	</div>
+<div class ="container text-uppercase font-weight-bold" id="learn">Hello ,<%=  request.getAttribute("user_id")%></div>
+
 </body>
 </html>

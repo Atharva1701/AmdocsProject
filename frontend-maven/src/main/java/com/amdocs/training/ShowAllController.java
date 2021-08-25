@@ -25,11 +25,12 @@ public class ShowAllController extends HttpServlet {
 		DataSource dataSource = DataSourceUtil.dataSource();
 		response.setContentType("text/html");  
         out.println("<html><body>");  
+        out.println("<link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\"><style> .float-container{padding: 10px;margin: 20px;} .float-child-left{float: left;	}	.float-child-right{width: 100px;float: right;	}</style>");
 		try {
 			Connection con = dataSource.getConnection();
 			Statement stmt = con.createStatement();  
             ResultSet rs = stmt.executeQuery("select * from user");
-            out.println("<table border=1 width=50% height=50%>");  
+            out.println("<table  class=\"table table-bordered\">");  
             out.println("<tr><th>User Id</th><th>Name</th><th>Phone</th><th>Email</th><th>Address</th><th>Reg. Date</th><th>Password</th><th>Photo</th><tr>");
             while(rs.next()) {
 				int uid = rs.getInt("user_id");
@@ -44,7 +45,7 @@ public class ShowAllController extends HttpServlet {
 			}
             out.println("</table>");  
             out.println("</html></body>");  
-            out.println("<button type=\"button\" name=\"back\" onclick=\"history.back()\">Back</button>");
+            out.println("<div style=\"text-align:center;\"><button type=\"button\" name=\"back\" onclick=\"history.back()\">Back</button></div>");
 		}
 		catch(Exception e) {
 			e.printStackTrace();

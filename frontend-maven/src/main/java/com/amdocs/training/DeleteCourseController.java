@@ -28,7 +28,7 @@ public class DeleteCourseController extends HttpServlet {
 		response.setContentType("text/html"); 
 		if(saveCourse) {
 			out.println("<h1>Course Deleted Successfully!</h2>");
-			out.println("<button type=\"button\" name=\"back\" onclick=\"history.back()\">Back</button>");
+			out.println("<div style=\"text-align:center;\"><button type=\"button\" name=\"back\" onclick=\"history.back()\">Back</button></div>");
 		}
 		else {
 			out.println("Try again!!");
