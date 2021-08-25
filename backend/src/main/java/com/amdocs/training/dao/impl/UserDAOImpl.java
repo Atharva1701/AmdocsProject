@@ -1,0 +1,62 @@
+package com.amdocs.training.dao.impl;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import com.amdocs.training.dao.UserDAO;
+import com.amdocs.training.db.DBUtil;
+import com.amdocs.training.model.Admin;
+import com.amdocs.training.model.User;
+public class UserDAOImpl implements UserDAO {
+	Connection conn = null;
+	@Override
+	public boolean saveUser(User user) {
+		String query = "insert into user values(?,?,?,?,?,?,?,?)";
+		try {
+			Connection conn = DBUtil.getConnection();
+			PreparedStatement ps = conn.prepareStatement(query);
+			ps.setInt(1, user.getUser_id());
+			ps.setString(2, user.getName());
+			ps.setLong(3, user.getPhone_no());
+			ps.setString(4, user.getEmail());
+			ps.setString(5, user.getAddress());
+			ps.setString(6, user.getReg_date());
+			ps.setString(7, user.getPassword());
+			ps.setString(8, user.getUpload_photo());
+			ps.executeUpdate();
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	@Override
+	public User showUserById(User user) {
+		User u = null;
+		String query = "select * from user where id = ?";
+		try {
+			Connection conn = DBUtil.getConnection();
+			PreparedStatement ps = conn.prepareStatement(query);
+			ps.setInt(1, user.getUser_id());
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				int id = rs.getInt("user_id");
+				String name = rs.getString("name");
+				long phone = rs.getLong("phone_no");
+				String email = rs.getString("email");
+				String add = rs.getString("address");
+				String reg = rs.getString("reg_date");
+				String password = rs.getString("password");
+				String upload = rs.getString("upload_photo");
+				u = new User(id, name, phone, email, add, reg, password, upload);
+				System.out.println("User Id : "+id+"\nName : "+name+"\nPhone# : "+phone+"\nEmail ID:"+email+"\nAddress : "+add+"\nReg. Date:"+reg+"Photo :"+upload);
+			}
+			return u;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+
+}
